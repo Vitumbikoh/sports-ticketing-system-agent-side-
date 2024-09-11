@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Sports Ticket</title>
+    <style>
+        /* Add your CSS styles here */
+        .ticket-container {
+            border: 1px solid #000;
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+        }
+        .ticket-left {
+            width: 25%;
+            padding: 10px;
+            background-color: blue;
+        }
+        .ticket-center {
+            width: 50%;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .ticket-right {
+            width: 25%;
+            padding: 10px;
+            background-color: yellow;
+        }
+        .ticket-heading {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .ticket-league {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .ticket-teams {
+            font-size: 16px;
+        }
+        .ticket-icon {
+            width: 50px;
+        }
+        .ticket-footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .ticket-footer-date {
+            font-size: 14px;
+        }
+        .ticket {
+            display: flex;
+            font-family: Roboto, sans-serif;
+            margin: 16px;
+            border: 1px solid #E0E0E0;
+            position: relative;
+        }
+
+        .ticket:before, .ticket:after, .ticket--start:before, .ticket--start:after {
+            content: '';
+            width: 32px;
+            height: 32px;
+            background-color: #fff;
+            border: 1px solid #E0E0E0;
+            border-top-color: transparent;
+            border-left-color: transparent;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .ticket:before {
+            transform: rotate(-45deg);
+            left: -18px;
+            top: 50%;
+            margin-top: -16px;
+        }
+
+        .ticket:after {
+            transform: rotate(135deg);
+            right: -18px;
+            top: 50%;
+            margin-top: -16px;
+        }
+
+        .ticket--start:before {
+            transform: rotate(-45deg);
+            left: -18px;
+            top: -2px;
+            margin-top: -16px;
+        }
+
+        .ticket--start:after {
+            transform: rotate(-45deg);
+            left: -18px;
+            top: 100%;
+            margin-top: -16px;
+        }
+
+        .ticket--start > img {
+            display: block;
+            padding: 24px;
+            height: 270px;
+        }
+        .ticket--start {
+            border-right: 1px dashed #E0E0E0;
+        }
+    </style>
+</head>
+<body>
+    <!-- ... previous HTML content ... -->
+    <div class="ticket-container">
+        <div class="ticket-left">
+            <div class="ticket-icon">
+                <img src="http://localhost/images/logo.png" alt="Logo">
+            </div>
+        </div>
+        <!-- ... previous HTML content ... -->
+        <div class="ticket-center">
+            <div class="ticket-heading" style="text-align: center; margin-bottom: 10px;">Sports Ticket</div>
+            <div class="ticket-league" style="text-align: center; margin-bottom: 10px;">League: {{ $data['league'] }}</div>
+            <div class="ticket-teams" style="text-align: center; margin-bottom: 10px;">{{ $data['team1'] }} VS {{ $data['team2'] }}</div>
+            <div class="ticket-stand" style="text-align: space-between; margin-bottom: 10px;">
+                <div class="standname">{{ $data['standname'] }}</div>
+                <div class="price" style="text-align: right;">Charge: 2000</div>
+            </div>
+            <div class="ticket-footer">
+                <div class="ticket-footer-date" style="text-align: center;">Date: {{ now()->format('Y-m-d H:i:s') }}</div>
+            </div>
+        </div>
+        <!-- ... rest of HTML ... -->
+
+        <div class="ticket-right">
+            <div class="ticket-heading">Sports Ticket</div>
+            <div class="ticket">
+                <div class="ticket--start">
+                    <img src="https://i.ibb.co/W3cK42J/image-1.png"/>
+                </div>
+            </div>
+            <div class="ticket-footer">
+                <div class="ticket-footer-date">
+                    {{ now()->format('Y-m-d H:i:s') }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ... rest of HTML ... -->
+</body>
+</html>
